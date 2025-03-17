@@ -1,0 +1,68 @@
+{
+    "name": "Movie Database Analytics",
+    "description": "Analyze the Neo4j movie database with statistics and recommendations.",
+    "verified": true,
+    "timestamp": "2025-03-05T15:30:00Z",
+    "connectionInfo": {
+        "id": "conn_movie_db",
+        "name": "Movie Database",
+        "url": "bolt://localhost:7687",
+        "username": "neo4j",
+        "database": "neo4j",
+        "wasConnected": true
+    },
+    "panelStates": {
+        "connectionPanel": {
+            "minimized": false,
+            "position": {"x": 20, "y": 20},
+            "size": {"width": "32%", "height": "200px"}
+        },
+        "queryPanel-1": {
+            "minimized": false,
+            "position": {"x": 20, "y": 240},
+            "size": {"width": "48%", "height": "300px"}
+        },
+        "queryPanel-2": {
+            "minimized": false,
+            "position": {"x": 500, "y": 240},
+            "size": {"width": "48%", "height": "300px"}
+        },
+        "queryPanel-3": {
+            "minimized": false,
+            "position": {"x": 20, "y": 560},
+            "size": {"width": "48%", "height": "320px"}
+        },
+        "queryPanel-4": {
+            "minimized": false,
+            "position": {"x": 500, "y": 560},
+            "size": {"width": "48%", "height": "320px"}
+        }
+    },
+    "queryPanels": [
+        {
+            "id": "queryPanel-1",
+            "query": "MATCH (m:Movie)<-[:ACTED_IN]-(a:Person)\nRETURN m.title as movie, count(a) as actors\nORDER BY actors DESC LIMIT 10",
+            "activeTab": "query",
+            "customTitle": "Movies with Most Actors"
+        },
+        {
+            "id": "queryPanel-2",
+            "query": "MATCH (a:Person)-[:ACTED_IN]->(m:Movie)\nRETURN a.name as actor, count(m) as movies\nORDER BY movies DESC LIMIT 10",
+            "activeTab": "query",
+            "customTitle": "Most Prolific Actors"
+        },
+        {
+            "id": "queryPanel-3",
+            "query": "MATCH (m:Movie)\nWHERE exists(m.tagline)\nRETURN m.released as year, count(m) as movies\nORDER BY year",
+            "activeTab": "query",
+            "customTitle": "Movies per Year"
+        },
+        {
+            "id": "queryPanel-4",
+            "query": "MATCH (m:Movie)<-[:DIRECTED]-(d:Person)\nRETURN d.name as director, count(m) as movies, round(avg(m.released)) as avgYear\nORDER BY movies DESC LIMIT 10",
+            "activeTab": "query",
+            "customTitle": "Top Directors"
+        }
+    ],
+    "activeQueryPanelId": "queryPanel-1"
+}

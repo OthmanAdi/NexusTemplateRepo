@@ -1,0 +1,57 @@
+{
+    "name": "Social Network Analysis",
+    "description": "Investigate social connections, communities, and influential users in a social graph.",
+    "verified": true,
+    "timestamp": "2025-03-15T14:20:00Z",
+    "connectionInfo": {
+        "id": "conn_social",
+        "name": "Social Graph",
+        "url": "bolt://localhost:7687",
+        "username": "neo4j",
+        "database": "social",
+        "wasConnected": true
+    },
+    "panelStates": {
+        "connectionPanel": {
+            "minimized": false,
+            "position": {"x": 20, "y": 20},
+            "size": {"width": "32%", "height": "200px"}
+        },
+        "queryPanel-1": {
+            "minimized": false,
+            "position": {"x": 20, "y": 240},
+            "size": {"width": "48%", "height": "320px"}
+        },
+        "queryPanel-2": {
+            "minimized": false,
+            "position": {"x": 500, "y": 240},
+            "size": {"width": "48%", "height": "320px"}
+        },
+        "queryPanel-3": {
+            "minimized": false,
+            "position": {"x": 20, "y": 580},
+            "size": {"width": "98%", "height": "300px"}
+        }
+    },
+    "queryPanels": [
+        {
+            "id": "queryPanel-1",
+            "query": "MATCH (u:User)-[:FOLLOWS]->(followed)\nRETURN u.username as user, count(followed) as following\nORDER BY following DESC LIMIT 15",
+            "activeTab": "query",
+            "customTitle": "Users with Most Followings"
+        },
+        {
+            "id": "queryPanel-2",
+            "query": "MATCH (u:User)<-[:FOLLOWS]-(follower)\nRETURN u.username as user, count(follower) as followers\nORDER BY followers DESC LIMIT 15",
+            "activeTab": "query",
+            "customTitle": "Users with Most Followers"
+        },
+        {
+            "id": "queryPanel-3",
+            "query": "MATCH (u:User)-[:POSTED]->(p:Post)<-[:LIKED]-(liker)\nWITH u, count(distinct liker) as totalLikers\nMATCH (u)-[:POSTED]->(p:Post)\nWITH u, totalLikers, count(p) as totalPosts\nRETURN u.username as user, totalPosts, totalLikers, toFloat(totalLikers)/totalPosts as engagement\nORDER BY engagement DESC\nLIMIT 20",
+            "activeTab": "query",
+            "customTitle": "User Engagement Analysis"
+        }
+    ],
+    "activeQueryPanelId": "queryPanel-1"
+}

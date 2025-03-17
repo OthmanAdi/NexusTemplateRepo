@@ -1,0 +1,68 @@
+{
+    "name": "Knowledge Graph Explorer",
+    "description": "Explore complex relationships in a knowledge graph with entity information and connections.",
+    "verified": true,
+    "timestamp": "2025-03-20T10:15:00Z",
+    "connectionInfo": {
+        "id": "conn_knowledge",
+        "name": "Knowledge Graph",
+        "url": "bolt://localhost:7687",
+        "username": "neo4j",
+        "database": "knowledge",
+        "wasConnected": true
+    },
+    "panelStates": {
+        "connectionPanel": {
+            "minimized": false,
+            "position": {"x": 20, "y": 20},
+            "size": {"width": "32%", "height": "200px"}
+        },
+        "queryPanel-1": {
+            "minimized": false,
+            "position": {"x": 20, "y": 240},
+            "size": {"width": "40%", "height": "280px"}
+        },
+        "queryPanel-2": {
+            "minimized": false,
+            "position": {"x": 450, "y": 240},
+            "size": {"width": "58%", "height": "280px"}
+        },
+        "queryPanel-3": {
+            "minimized": false,
+            "position": {"x": 20, "y": 540},
+            "size": {"width": "40%", "height": "300px"}
+        },
+        "queryPanel-4": {
+            "minimized": false,
+            "position": {"x": 450, "y": 540},
+            "size": {"width": "58%", "height": "300px"}
+        }
+    },
+    "queryPanels": [
+        {
+            "id": "queryPanel-1",
+            "query": "MATCH (c:Concept)\nRETURN c.name as concept, c.relevance as relevance\nORDER BY relevance DESC LIMIT 20",
+            "activeTab": "query",
+            "customTitle": "Top Concepts"
+        },
+        {
+            "id": "queryPanel-2",
+            "query": "MATCH (src:Concept)-[r:RELATES_TO]->(dst:Concept)\nRETURN src.name as source, dst.name as target, type(r) as relationship, r.strength as strength\nORDER BY strength DESC LIMIT 25",
+            "activeTab": "query",
+            "customTitle": "Strongest Relationships"
+        },
+        {
+            "id": "queryPanel-3",
+            "query": "MATCH (c:Concept)-[:APPEARS_IN]->(d:Document)\nRETURN c.name as concept, count(d) as documents\nORDER BY documents DESC LIMIT 15",
+            "activeTab": "query",
+            "customTitle": "Concepts by Document Frequency"
+        },
+        {
+            "id": "queryPanel-4",
+            "query": "MATCH p=shortestPath((src:Concept {name: 'Artificial Intelligence'})-[*1..5]-(dst:Concept {name: 'Ethics'}))\nUNWIND nodes(p) as concept\nRETURN concept.name as conceptName, concept.domain as domain",
+            "activeTab": "query",
+            "customTitle": "AI to Ethics Path"
+        }
+    ],
+    "activeQueryPanelId": "queryPanel-1"
+}

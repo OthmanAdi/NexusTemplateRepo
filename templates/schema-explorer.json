@@ -1,0 +1,57 @@
+{
+    "name": "Schema Explorer",
+    "description": "Basic dashboard for exploring Neo4j schema with node labels, relationship types, and property keys.",
+    "verified": true,
+    "timestamp": "2025-03-01T12:00:00Z",
+    "connectionInfo": {
+        "id": "conn_schema_explorer",
+        "name": "Schema DB",
+        "url": "bolt://localhost:7687",
+        "username": "neo4j",
+        "database": "neo4j",
+        "wasConnected": true
+    },
+    "panelStates": {
+        "connectionPanel": {
+            "minimized": false,
+            "position": {"x": 20, "y": 20},
+            "size": {"width": "32%", "height": "200px"}
+        },
+        "queryPanel-1": {
+            "minimized": false,
+            "position": {"x": 20, "y": 240},
+            "size": {"width": "48%", "height": "300px"}
+        },
+        "queryPanel-2": {
+            "minimized": false,
+            "position": {"x": 500, "y": 240},
+            "size": {"width": "48%", "height": "300px"}
+        },
+        "queryPanel-3": {
+            "minimized": false,
+            "position": {"x": 20, "y": 560},
+            "size": {"width": "98%", "height": "320px"}
+        }
+    },
+    "queryPanels": [
+        {
+            "id": "queryPanel-1",
+            "query": "CALL db.labels() YIELD label\nRETURN label ORDER BY label",
+            "activeTab": "query",
+            "customTitle": "Node Labels"
+        },
+        {
+            "id": "queryPanel-2",
+            "query": "CALL db.relationshipTypes() YIELD relationshipType\nRETURN relationshipType ORDER BY relationshipType",
+            "activeTab": "query",
+            "customTitle": "Relationship Types"
+        },
+        {
+            "id": "queryPanel-3",
+            "query": "CALL apoc.meta.schema() YIELD value\nRETURN value",
+            "activeTab": "query",
+            "customTitle": "Schema Overview"
+        }
+    ],
+    "activeQueryPanelId": "queryPanel-1"
+}

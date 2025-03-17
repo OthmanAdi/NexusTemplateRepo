@@ -1,0 +1,57 @@
+{
+    "name": "E-Commerce Graph Analysis",
+    "description": "Analyze customer behavior, product performance, and recommendations for e-commerce.",
+    "verified": true,
+    "timestamp": "2025-03-10T09:45:00Z",
+    "connectionInfo": {
+        "id": "conn_ecommerce",
+        "name": "E-Commerce DB",
+        "url": "bolt://localhost:7687",
+        "username": "neo4j",
+        "database": "ecommerce",
+        "wasConnected": true
+    },
+    "panelStates": {
+        "connectionPanel": {
+            "minimized": false,
+            "position": {"x": 20, "y": 20},
+            "size": {"width": "32%", "height": "200px"}
+        },
+        "queryPanel-1": {
+            "minimized": false,
+            "position": {"x": 20, "y": 240},
+            "size": {"width": "48%", "height": "280px"}
+        },
+        "queryPanel-2": {
+            "minimized": false,
+            "position": {"x": 500, "y": 240},
+            "size": {"width": "48%", "height": "280px"}
+        },
+        "queryPanel-3": {
+            "minimized": false,
+            "position": {"x": 20, "y": 540},
+            "size": {"width": "98%", "height": "350px"}
+        }
+    },
+    "queryPanels": [
+        {
+            "id": "queryPanel-1",
+            "query": "MATCH (c:Customer)-[:PURCHASED]->(o:Order)-[:CONTAINS]->(p:Product)\nRETURN p.name as product, count(distinct c) as customers\nORDER BY customers DESC LIMIT 10",
+            "activeTab": "query",
+            "customTitle": "Top Products by Customer Count"
+        },
+        {
+            "id": "queryPanel-2",
+            "query": "MATCH (c:Customer)-[:PURCHASED]->(o:Order)-[:CONTAINS]->(p:Product)\nRETURN c.name as customer, count(distinct p) as products\nORDER BY products DESC LIMIT 15",
+            "activeTab": "query",
+            "customTitle": "Top Customers by Product Variety"
+        },
+        {
+            "id": "queryPanel-3",
+            "query": "MATCH (c:Customer)-[:PURCHASED]->(o:Order)-[:CONTAINS]->(p:Product)\nWHERE p.category = 'Electronics'\nWITH c, collect(p.id) as purchasedProducts\nMATCH (p:Product)\nWHERE p.category = 'Electronics' AND NOT p.id IN purchasedProducts\nWITH c, p, purchasedProducts\nMATCH (p)-[:SIMILAR_TO]-(p2:Product)\nWHERE p2.id IN purchasedProducts\nRETURN c.name as customer, p.name as recommendation, count(p2) as strength\nORDER BY strength DESC LIMIT 20",
+            "activeTab": "query",
+            "customTitle": "Product Recommendations"
+        }
+    ],
+    "activeQueryPanelId": "queryPanel-1"
+}
