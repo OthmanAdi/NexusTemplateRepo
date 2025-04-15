@@ -1,0 +1,285 @@
+{
+  "name": "mig23",
+  "description": "",
+  "tags": [],
+  "nodes": [
+    {
+      "id": "node_7ac7b2ef-589b-4de0-bda6-b24072731ca3",
+      "type": "neo4jQueryNodeNew",
+      "position": {
+        "x": 555,
+        "y": 210
+      },
+      "data": {
+        "label": "neo4jQueryNodeNew",
+        "isIsolated": false,
+        "persistentError": false,
+        "errorMessage": null
+      },
+      "width": 400,
+      "height": 455,
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "node_01829a7f-fdc9-4904-86a7-3e641ada5f7c",
+      "type": "userCleanupNode",
+      "position": {
+        "x": 285,
+        "y": 990
+      },
+      "data": {
+        "label": "Remove All Test Users",
+        "persistentError": false,
+        "errorMessage": null
+      },
+      "width": 205,
+      "height": 107,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 285,
+        "y": 990
+      },
+      "dragging": false
+    },
+    {
+      "id": "node_c9ba9bc1-849a-4376-91a3-fb5aa822b253",
+      "type": "userCleanupNode",
+      "position": {
+        "x": 975,
+        "y": 975
+      },
+      "data": {
+        "label": "Remove All Test Users",
+        "persistentError": false,
+        "errorMessage": null,
+        "isIsolated": false
+      },
+      "width": 205,
+      "height": 107,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 975,
+        "y": 975
+      },
+      "dragging": false
+    },
+    {
+      "id": "node_a5bb8500-03a3-4b1b-b1b4-4af9c4bff803",
+      "type": "neo4jRoboCopyNode",
+      "position": {
+        "x": 1230,
+        "y": 390
+      },
+      "data": {
+        "label": "neo4jRoboCopyNode",
+        "isIsolated": false
+      },
+      "width": 800,
+      "height": 855,
+      "selected": true,
+      "dragging": false
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-node_7ac7b2ef-589b-4de0-bda6-b24072731ca3-node_01829a7f-fdc9-4904-86a7-3e641ada5f7c",
+      "source": "node_7ac7b2ef-589b-4de0-bda6-b24072731ca3",
+      "target": "node_01829a7f-fdc9-4904-86a7-3e641ada5f7c",
+      "animated": false,
+      "style": {
+        "stroke": "#555",
+        "strokeWidth": 2
+      },
+      "data": {
+        "delay": 0,
+        "disabled": true,
+        "hasError": false,
+        "errorMessage": null,
+        "active": true
+      },
+      "selected": false
+    },
+    {
+      "source": "node_7ac7b2ef-589b-4de0-bda6-b24072731ca3",
+      "sourceHandle": null,
+      "target": "node_c9ba9bc1-849a-4376-91a3-fb5aa822b253",
+      "targetHandle": null,
+      "id": "edge-node_7ac7b2ef-589b-4de0-bda6-b24072731ca3-default-node_c9ba9bc1-849a-4376-91a3-fb5aa822b253-default",
+      "animated": false,
+      "style": {
+        "stroke": "#555",
+        "strokeWidth": 2
+      },
+      "data": {
+        "isRunning": false,
+        "delay": 0,
+        "disabled": true,
+        "hasError": false,
+        "errorMessage": null
+      },
+      "selected": false
+    },
+    {
+      "source": "node_7ac7b2ef-589b-4de0-bda6-b24072731ca3",
+      "sourceHandle": null,
+      "target": "node_a5bb8500-03a3-4b1b-b1b4-4af9c4bff803",
+      "targetHandle": null,
+      "id": "edge-node_7ac7b2ef-589b-4de0-bda6-b24072731ca3-default-node_a5bb8500-03a3-4b1b-b1b4-4af9c4bff803-default",
+      "animated": false,
+      "style": {
+        "stroke": "#555",
+        "strokeWidth": 2
+      },
+      "data": {
+        "isRunning": false,
+        "delay": 0
+      }
+    }
+  ],
+  "color": "#f97316",
+  "emoji": null,
+  "iconName": null,
+  "exportedAt": "2025-04-15T23:39:53.372Z",
+  "exportedBy": "OthmanAdi",
+  "latestSnapshot": {
+    "id": 1744734275179,
+    "timestamp": "2025-04-15T16:24:35.178Z",
+    "description": "created connection at 18:24:35",
+    "nodes": [
+      {
+        "id": "node_7ac7b2ef-589b-4de0-bda6-b24072731ca3",
+        "type": "neo4jQueryNodeNew",
+        "position": {
+          "x": 555,
+          "y": 210
+        },
+        "data": {
+          "label": "neo4jQueryNodeNew",
+          "isIsolated": false,
+          "persistentError": false,
+          "errorMessage": null
+        },
+        "width": 400,
+        "height": 455,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "node_01829a7f-fdc9-4904-86a7-3e641ada5f7c",
+        "type": "userCleanupNode",
+        "position": {
+          "x": 285,
+          "y": 990
+        },
+        "data": {
+          "label": "Remove All Test Users",
+          "persistentError": false,
+          "errorMessage": null
+        },
+        "width": 205,
+        "height": 107,
+        "selected": false,
+        "positionAbsolute": {
+          "x": 285,
+          "y": 990
+        },
+        "dragging": false
+      },
+      {
+        "id": "node_c9ba9bc1-849a-4376-91a3-fb5aa822b253",
+        "type": "userCleanupNode",
+        "position": {
+          "x": 975,
+          "y": 975
+        },
+        "data": {
+          "label": "Remove All Test Users",
+          "persistentError": false,
+          "errorMessage": null,
+          "isIsolated": false
+        },
+        "width": 205,
+        "height": 107,
+        "selected": false,
+        "positionAbsolute": {
+          "x": 975,
+          "y": 975
+        },
+        "dragging": false
+      },
+      {
+        "id": "node_a5bb8500-03a3-4b1b-b1b4-4af9c4bff803",
+        "type": "neo4jRoboCopyNode",
+        "position": {
+          "x": 1230,
+          "y": 390
+        },
+        "data": {
+          "label": "neo4jRoboCopyNode"
+        },
+        "width": 307,
+        "height": 387,
+        "selected": true,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge-node_7ac7b2ef-589b-4de0-bda6-b24072731ca3-node_01829a7f-fdc9-4904-86a7-3e641ada5f7c",
+        "source": "node_7ac7b2ef-589b-4de0-bda6-b24072731ca3",
+        "target": "node_01829a7f-fdc9-4904-86a7-3e641ada5f7c",
+        "animated": false,
+        "style": {
+          "stroke": "#555",
+          "strokeWidth": 2
+        },
+        "data": {
+          "delay": 0,
+          "disabled": true,
+          "hasError": false,
+          "errorMessage": null,
+          "active": true
+        },
+        "selected": false
+      },
+      {
+        "source": "node_7ac7b2ef-589b-4de0-bda6-b24072731ca3",
+        "sourceHandle": null,
+        "target": "node_c9ba9bc1-849a-4376-91a3-fb5aa822b253",
+        "targetHandle": null,
+        "id": "edge-node_7ac7b2ef-589b-4de0-bda6-b24072731ca3-default-node_c9ba9bc1-849a-4376-91a3-fb5aa822b253-default",
+        "animated": false,
+        "style": {
+          "stroke": "#555",
+          "strokeWidth": 2
+        },
+        "data": {
+          "isRunning": false,
+          "delay": 0,
+          "disabled": true,
+          "hasError": false,
+          "errorMessage": null
+        },
+        "selected": false
+      },
+      {
+        "source": "node_7ac7b2ef-589b-4de0-bda6-b24072731ca3",
+        "sourceHandle": null,
+        "target": "node_a5bb8500-03a3-4b1b-b1b4-4af9c4bff803",
+        "targetHandle": null,
+        "id": "edge-node_7ac7b2ef-589b-4de0-bda6-b24072731ca3-default-node_a5bb8500-03a3-4b1b-b1b4-4af9c4bff803-default",
+        "animated": false,
+        "style": {
+          "stroke": "transparent",
+          "strokeWidth": 2
+        },
+        "data": {
+          "isRunning": false,
+          "delay": 0
+        }
+      }
+    ],
+    "workflowId": "8ddad777-3156-4986-92e5-340ce0074f56"
+  }
+}
