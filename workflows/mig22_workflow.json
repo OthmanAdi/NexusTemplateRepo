@@ -1,0 +1,38 @@
+{
+  "name": "mig22",
+  "description": "",
+  "tags": [],
+  "nodes": [],
+  "edges": [],
+  "color": "#8b5cf6",
+  "emoji": null,
+  "iconName": null,
+  "exportedAt": "2025-04-17T13:54:46.655Z",
+  "exportedBy": "OthmanAdi",
+  "latestSnapshot": {
+    "id": 1744898059466,
+    "timestamp": "2025-04-17T13:54:19.466Z",
+    "description": "added node from quick add at 3:54:19 PM",
+    "nodes": [
+      {
+        "id": "node_e1d797c7-108c-4ba0-be0d-197a7fd17a01",
+        "type": "adUserSequentialNode",
+        "position": {
+          "x": 100,
+          "y": 250
+        },
+        "data": {
+          "label": "Create AD Users (Sequential)"
+        },
+        "width": 205,
+        "height": 168,
+        "positionAbsolute": {
+          "x": 100,
+          "y": 250
+        }
+      }
+    ],
+    "edges": [],
+    "workflowId": "792db487-f820-4985-bd4e-56a659756acb"
+  }
+}
